@@ -16,7 +16,7 @@ build:
 	go build -o bin/$(BINARY_NAME) main.go
 
 build-docker:
-	docker build -t $(BINARY_NAME) .
+	docker build -t "$(DOCKER_USERNAME)/$(BINARY_NAME)" .
 
 run-docker:
 	docker run -p 8080:8080 $(BINARY_NAME)
@@ -26,8 +26,8 @@ clean:
 	rm -f bin/$(BINARY_NAME)
 
 docker-clean:
-	docker rmi $(BINARY_NAME)
+	docker rmi "$(DOCKER_USERNAME)$(BINARY_NAME)"
 
 docker-push:
 	echo "$(DOCKER_PASSWORD)" | docker login -u "$(DOCKER_USERNAME)" --password-stdin
-	docker push $(BINARY_NAME)
+	docker push "$(DOCKER_USERNAME)$(BINARY_NAME)"
