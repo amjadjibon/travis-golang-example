@@ -24,3 +24,10 @@ run-docker:
 clean:
 	go clean
 	rm -f bin/$(BINARY_NAME)
+
+docker-clean:
+	docker rmi $(BINARY_NAME)
+
+docker-push:
+	echo "$(DOCKER_PASSWORD)" | docker login -u "$(DOCKER_USERNAME)" --password-stdin
+	docker push $(DOCKER_USERNAME)/$(BINARY_NAME)

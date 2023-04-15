@@ -14,8 +14,8 @@ script:
   - make test
   - make build-docker
 
-#deploy:
-#    provider: script
-#    script: bash docker_push
-#    on:
-#        branch: master
+deploy:
+    provider: script
+    script: make push-docker
+    on:
+        branch: master
