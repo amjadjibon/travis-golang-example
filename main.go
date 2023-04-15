@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net/http"
+	"os"
 
 	"github.com/julienschmidt/httprouter"
 )
@@ -20,5 +20,9 @@ func main() {
 	router := httprouter.New()
 	router.GET("/", Index)
 	router.GET("/hello/:name", Hello)
-	log.Fatal(http.ListenAndServe(":8080", router))
+	addr := fmt.Sprintf("%s:%s", os.Getenv("HOST"), os.Getenv("PORT"))
+	err := http.ListenAndServe(addr, router)
+	if err != nil {
+		panic(err)
+	}
 }

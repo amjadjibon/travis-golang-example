@@ -1,0 +1,14 @@
+language: go
+
+go:
+  - 1.20.x
+
+services:
+  - docker
+
+env:
+  HOST=0.0.0.0
+  PORT=8080
+
+script:
+  - make test
