@@ -13,5 +13,5 @@ RUN cp /usr/share/zoneinfo/Asia/Dhaka /etc/localtime
 USER app
 WORKDIR /app
 EXPOSE 8080
-COPY --from=builder /app/bin/travis-golang-example /usr/local/bin/travis-golang-example
+COPY --from=builder /app/bin/travis-golang-example /usr/local/bin
 CMD ["travis-golang-example"]
