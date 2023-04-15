@@ -30,4 +30,4 @@ docker-clean:
 
 docker-push:
 	echo "$(DOCKER_PASSWORD)" | docker login -u "$(DOCKER_USERNAME)" --password-stdin
-	docker push $(DOCKER_USERNAME)/$(BINARY_NAME)
+	docker push $(BINARY_NAME)
