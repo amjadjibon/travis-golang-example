@@ -11,7 +11,7 @@ func TestIndex(t *testing.T) {
 	w := httptest.NewRecorder()
 	r := httptest.NewRequest("GET", "/", nil)
 
-	Index(w, r, nil)
+	index(w, r, nil)
 
 	if w.Code != 200 {
 		t.Errorf("Index() = %d; want 200", w.Code)
@@ -27,7 +27,7 @@ func TestHello(t *testing.T) {
 	r := httptest.NewRequest("GET", "/hello/gopher", nil)
 	p := httprouter.Params{httprouter.Param{Key: "name", Value: "gopher"}}
 
-	Hello(w, r, p)
+	hello(w, r, p)
 
 	if w.Code != 200 {
 		t.Errorf("Hello() = %d; want 200", w.Code)
