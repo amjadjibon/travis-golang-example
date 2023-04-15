@@ -16,6 +16,6 @@ script:
 
 deploy:
     provider: script
-    script: make push-docker
+    script: make docker-push
     on:
         branch: master
